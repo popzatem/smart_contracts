@@ -1,0 +1,703 @@
+{
+	"compiler": {
+		"version": "0.8.13+commit.abaa5c0e"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "contract IBEP20",
+						"name": "_stakedToken",
+						"type": "address"
+					},
+					{
+						"internalType": "contract IBEP20",
+						"name": "_rewardToken",
+						"type": "address"
+					},
+					{
+						"internalType": "contract RewardTreasury",
+						"name": "_rewardTreasury",
+						"type": "address"
+					},
+					{
+						"internalType": "contract IPendingWithdrawal",
+						"name": "_pendingWithdrawal",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_rewardPerBlock",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_startBlock",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_bonusEndBlock",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_poolLimitPerUser",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "tokenRecovered",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "AdminTokenRecovery",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "user",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "Deposit",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "user",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "EmergencyWithdraw",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "poolLimitPerUser",
+						"type": "uint256"
+					}
+				],
+				"name": "NewPoolLimit",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "rewardPerBlock",
+						"type": "uint256"
+					}
+				],
+				"name": "NewRewardPerBlock",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "startBlock",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "endBlock",
+						"type": "uint256"
+					}
+				],
+				"name": "NewStartAndEndBlocks",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "previousOwner",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "newOwner",
+						"type": "address"
+					}
+				],
+				"name": "OwnershipTransferred",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "blockNumber",
+						"type": "uint256"
+					}
+				],
+				"name": "RewardsStop",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "user",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "Withdraw",
+				"type": "event"
+			},
+			{
+				"inputs": [],
+				"name": "PRECISION_FACTOR",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "accTokenPerShare",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "bonusEndBlock",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_amount",
+						"type": "uint256"
+					}
+				],
+				"name": "deposit",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "emergencyWithdraw",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "hasUserLimit",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "lastRewardBlock",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "owner",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_user",
+						"type": "address"
+					}
+				],
+				"name": "pendingReward",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "pendingWithdrawal",
+				"outputs": [
+					{
+						"internalType": "contract IPendingWithdrawal",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "poolLimitPerUser",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_tokenAddress",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_tokenAmount",
+						"type": "uint256"
+					}
+				],
+				"name": "recoverWrongTokens",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "renounceOwnership",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "rewardPerBlock",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "rewardToken",
+				"outputs": [
+					{
+						"internalType": "contract IBEP20",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "rewardTreasury",
+				"outputs": [
+					{
+						"internalType": "contract RewardTreasury",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "stakedToken",
+				"outputs": [
+					{
+						"internalType": "contract IBEP20",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "startBlock",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "stopReward",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "newOwner",
+						"type": "address"
+					}
+				],
+				"name": "transferOwnership",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "bool",
+						"name": "_hasUserLimit",
+						"type": "bool"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_poolLimitPerUser",
+						"type": "uint256"
+					}
+				],
+				"name": "updatePoolLimitPerUser",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_rewardPerBlock",
+						"type": "uint256"
+					}
+				],
+				"name": "updateRewardPerBlock",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_startBlock",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_bonusEndBlock",
+						"type": "uint256"
+					}
+				],
+				"name": "updateStartAndEndBlocks",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"name": "userInfo",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "rewardDebt",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_amount",
+						"type": "uint256"
+					}
+				],
+				"name": "withdraw",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {
+				"owner()": {
+					"details": "Returns the address of the current owner."
+				},
+				"recoverWrongTokens(address,uint256)": {
+					"details": "This function is only callable by owner.",
+					"params": {
+						"_tokenAddress": ": the address of the token to withdraw",
+						"_tokenAmount": ": the number of tokens to withdraw"
+					}
+				},
+				"renounceOwnership()": {
+					"details": "Leaves the contract without owner. It will not be possible to call `onlyOwner` functions anymore. Can only be called by the current owner. NOTE: Renouncing ownership will leave the contract without an owner, thereby removing any functionality that is only available to the owner."
+				},
+				"transferOwnership(address)": {
+					"details": "Transfers ownership of the contract to a new account (`newOwner`). Can only be called by the current owner."
+				},
+				"updateStartAndEndBlocks(uint256,uint256)": {
+					"details": "This function is only callable by owner.",
+					"params": {
+						"_bonusEndBlock": ": the new end block",
+						"_startBlock": ": the new start block"
+					}
+				}
+			},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {
+				"recoverWrongTokens(address,uint256)": {
+					"notice": "It allows the owner to recover wrong tokens sent to the contract"
+				},
+				"updateStartAndEndBlocks(uint256,uint256)": {
+					"notice": "It allows the owner to update start and end blocks"
+				}
+			},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"farms-pools/LandbaseLockPoolV2.sol": "LandbaseLockPoolV2"
+		},
+		"evmVersion": "london",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"contracts/BEP20.sol": {
+			"keccak256": "0x325eb627eb1acb2bf55f0836f9f460261fa4b408d04878df038260201b5d9c95",
+			"license": "GPL-3.0",
+			"urls": [
+				"bzz-raw://774f25742454ecfd4342eb5128ddf5d241e76982981629334b740b1eb69b3404",
+				"dweb:/ipfs/QmdnBm7kHAN3wauyv5JrByt1yuehBUeiV5e9dw6QNwQ48S"
+			]
+		},
+		"contracts/IBEP20.sol": {
+			"keccak256": "0x08dc42fc8715fc0cee50f6d2fcd29a657d23f6144968197f865e5c0f94028ec8",
+			"license": "GPL-3.0",
+			"urls": [
+				"bzz-raw://79c1cb76e371cbb5adf34470dfea7fc66ca48a43b29ad3f136eee6f900e6cee3",
+				"dweb:/ipfs/QmQBf7YZ4LpKpp1yQcxsAzrdHzuAbmn2cf8qb9ky5WNp2D"
+			]
+		},
+		"contracts/LandbaseToken.sol": {
+			"keccak256": "0xfbba8e9a09ff3cd03e0411f0588b987d579d7e8a54f88b6d1dfe5a1ff705764a",
+			"license": "GPL-3.0",
+			"urls": [
+				"bzz-raw://866fb29f4e0d073df3322279530a7a2a71a1df8529da588e25022d86db602be5",
+				"dweb:/ipfs/QmPTVWRuASLzC5TZZnNYKAS5KTkF8hCwsiJBxPU2Z2DQBX"
+			]
+		},
+		"contracts/SafeBEP20.sol": {
+			"keccak256": "0x6b8297f9122caf6ff7c93544fcd35f0dcf0fd8a542fe89d8a2e2dab27294c64b",
+			"license": "GPL-3.0",
+			"urls": [
+				"bzz-raw://50848603bc138943be8f4672e7635987a52a78ca27eadcfb2323e6b99f7da5bf",
+				"dweb:/ipfs/QmaPEQaBK4w648oPoiK2VPCtN2BeKLmC5dMoztuVbwJVZ7"
+			]
+		},
+		"contracts/access/Ownable.sol": {
+			"keccak256": "0xe3b365539b1e8a4a0dace6efed1c6364d3c3cb8b260b8717a7524ad6c5d20e86",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://567953dca5bb4fbd23e93733d29b58232370935eb9c9dad09b4a8513c383ec62",
+				"dweb:/ipfs/QmNwVwQwC8HZ5oL9g8QypjNwwYxRUxqp8hgfcdMdHpnFPR"
+			]
+		},
+		"contracts/libraries/SafeMath.sol": {
+			"keccak256": "0xdf297ae5498c5a335398fac67c7dcb4479f2a0954c881ece4338637b44942a58",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://58c779928cd68ac59867d57bea855016f4d06e47c2d693a60230aa5bbf0acec1",
+				"dweb:/ipfs/QmPWYTn5eNUUGiyCm3EJx4mEQPRh9baePiQ1oztr4bTLhr"
+			]
+		},
+		"contracts/security/ReentrancyGuard.sol": {
+			"keccak256": "0xda3ce84b884b80d107f3ee32fa025bdc926ff1971f28554ad597a9703e0d062b",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://cf6684c8e5de1223b94664eca8b6852b1d8e0bab191fa8832d1fab5c6c63df1c",
+				"dweb:/ipfs/QmReWJ6LLBXAW4FwMx3iPLzEqXNeLMUuH1y1pgmq3SZGgW"
+			]
+		},
+		"contracts/structs/EnumerableSet.sol": {
+			"keccak256": "0xb5d9d145978c5e56644335b68131f2907415a8af195f23ccc8f623dc7db62ce3",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://92575a1257864d5127ad2bcf72f0b5ca916c1a5fdcf89567842ea2cbb6e6c12e",
+				"dweb:/ipfs/QmcXzLvfwrgiwfqNtVE437MdKTv6spcgDhdj3DZhG7bAZV"
+			]
+		},
+		"contracts/utils/Address.sol": {
+			"keccak256": "0x626b62cca5971be750732929d782b30e1277e36dd6b4ec2a90ddbbb61c650066",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://07c78b7f7894e0444db2c6c4c73e4eddb78beed6bd65cd6089e2e9434bea83b0",
+				"dweb:/ipfs/QmczQU7ihPMBhAmUM9MxnumRWwwvnTiDMDHp3nJSgYXQim"
+			]
+		},
+		"contracts/utils/Context.sol": {
+			"keccak256": "0x851c3d8e30ea37c35947f620812e2e18718ac9312ef8d84b643fc46d94269540",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://7c02fec97a236e7eda6646bb8aef30a00f134710ffc29f1965c27dc257cc58a3",
+				"dweb:/ipfs/QmNoqNHYS9HP9u8J3bG5kVztMNcQ42kYiiiKDN8tY94gvY"
+			]
+		},
+		"farms-pools/LandbaseLockPoolV2.sol": {
+			"keccak256": "0x808132f4c79a433e634401d151d661c5065ba0620323734721767a2190a44cf0",
+			"license": "GPL-3.0",
+			"urls": [
+				"bzz-raw://20c6335107559ac9a00b63eb3e78ec9f6a5b511d952c5801883d745a1709f390",
+				"dweb:/ipfs/Qmcj7ix2cZw4Mv8y6XN1hsWz7bz68Ttha2BsSfxG59bJX9"
+			]
+		},
+		"farms-pools/RewardTreasury.sol": {
+			"keccak256": "0x39f0dc1788deed4c8ed7135417463215fab23b5ac6c55ea6fd12da2eed43872e",
+			"license": "GPL-3.0",
+			"urls": [
+				"bzz-raw://232fb93e7547c783e04df806107b742e89e3493a629825296f639912aaa3f13a",
+				"dweb:/ipfs/QmUvWRUGdp3gBBup614WQWCAzJ2KzXnqwRrZ7nFMHyT1Bq"
+			]
+		}
+	},
+	"version": 1
+}

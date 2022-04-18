@@ -1,0 +1,1167 @@
+{
+	"compiler": {
+		"version": "0.6.12+commit.27d51765"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "contract IERC20",
+						"name": "_token",
+						"type": "address"
+					},
+					{
+						"internalType": "contract IERC20",
+						"name": "_receiptToken",
+						"type": "address"
+					},
+					{
+						"internalType": "contract IMasterChef",
+						"name": "_masterchef",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "_admin",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "_treasury",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_startBlock",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_endBlock",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "sender",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "shares",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "lastDepositedTime",
+						"type": "uint256"
+					}
+				],
+				"name": "Deposit",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "sender",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "performanceFee",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "callFee",
+						"type": "uint256"
+					}
+				],
+				"name": "Harvest",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "previousOwner",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "newOwner",
+						"type": "address"
+					}
+				],
+				"name": "OwnershipTransferred",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [],
+				"name": "Pause",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "account",
+						"type": "address"
+					}
+				],
+				"name": "Paused",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [],
+				"name": "Unpause",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "account",
+						"type": "address"
+					}
+				],
+				"name": "Unpaused",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "endBlock",
+						"type": "uint256"
+					}
+				],
+				"name": "UpdateEndBlock",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "startBlock",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "endBlock",
+						"type": "uint256"
+					}
+				],
+				"name": "UpdateStartAndEndBlocks",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "sender",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "lastAvgBalance",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "lastActionBalance",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "lastValidActionBalance",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "lastActionBlock",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "lastValidActionBlock",
+						"type": "uint256"
+					}
+				],
+				"name": "UpdateUserIFO",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "sender",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "shares",
+						"type": "uint256"
+					}
+				],
+				"name": "Withdraw",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "sender",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "currentBlock",
+						"type": "uint256"
+					}
+				],
+				"name": "ZeroFreeIFO",
+				"type": "event"
+			},
+			{
+				"inputs": [],
+				"name": "MAX_CALL_FEE",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "MAX_PERFORMANCE_FEE",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "MAX_WITHDRAW_FEE",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "MAX_WITHDRAW_FEE_PERIOD",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "admin",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "available",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "balanceOf",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "calculateHarvestCakeRewards",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "calculateTotalPendingCakeRewards",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "callFee",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_amount",
+						"type": "uint256"
+					}
+				],
+				"name": "deposit",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "emergencyWithdraw",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "emergencyWithdrawAll",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "endBlock",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getPricePerFullShare",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_user",
+						"type": "address"
+					}
+				],
+				"name": "getUserCredit",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "avgBalance",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "harvest",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_token",
+						"type": "address"
+					}
+				],
+				"name": "inCaseTokensGetStuck",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "lastHarvestedTime",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "masterchef",
+				"outputs": [
+					{
+						"internalType": "contract IMasterChef",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "owner",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "pause",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "paused",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "performanceFee",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "receiptToken",
+				"outputs": [
+					{
+						"internalType": "contract IERC20",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "renounceOwnership",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_admin",
+						"type": "address"
+					}
+				],
+				"name": "setAdmin",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_callFee",
+						"type": "uint256"
+					}
+				],
+				"name": "setCallFee",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_performanceFee",
+						"type": "uint256"
+					}
+				],
+				"name": "setPerformanceFee",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_treasury",
+						"type": "address"
+					}
+				],
+				"name": "setTreasury",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_withdrawFee",
+						"type": "uint256"
+					}
+				],
+				"name": "setWithdrawFee",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_withdrawFeePeriod",
+						"type": "uint256"
+					}
+				],
+				"name": "setWithdrawFeePeriod",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "startBlock",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "token",
+				"outputs": [
+					{
+						"internalType": "contract IERC20",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "totalShares",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "newOwner",
+						"type": "address"
+					}
+				],
+				"name": "transferOwnership",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "treasury",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "unpause",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_endBlock",
+						"type": "uint256"
+					}
+				],
+				"name": "updateEndBlock",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_startBlock",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_endBlock",
+						"type": "uint256"
+					}
+				],
+				"name": "updateStartAndEndBlocks",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"name": "userIFOInfo",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "lastActionBalance",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "lastValidActionBalance",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "lastActionBlock",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "lastValidActionBlock",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "lastAvgBalance",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"name": "userInfo",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "shares",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "lastDepositedTime",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "cakeAtLastUserAction",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "lastUserActionTime",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_shares",
+						"type": "uint256"
+					}
+				],
+				"name": "withdraw",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "withdrawAll",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "withdrawFee",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "withdrawFeePeriod",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {
+				"available()": {
+					"details": "The contract puts 100% of the tokens to work."
+				},
+				"balanceOf()": {
+					"details": "It includes tokens held by the contract and held in MasterChef"
+				},
+				"calculateHarvestCakeRewards()": {
+					"returns": {
+						"_0": "Expected reward to collect in CAKE"
+					}
+				},
+				"calculateTotalPendingCakeRewards()": {
+					"returns": {
+						"_0": "Returns total pending cake rewards"
+					}
+				},
+				"constructor": {
+					"params": {
+						"_admin": ": address of the admin",
+						"_endBlock": ": IFO end block height",
+						"_masterchef": ": MasterChef contract",
+						"_receiptToken": ": Syrup token contract",
+						"_startBlock": ": IFO start block height",
+						"_token": ": Cake token contract",
+						"_treasury": ": address of the treasury (collects fees)"
+					}
+				},
+				"deposit(uint256)": {
+					"details": "Only possible when contract not paused.",
+					"params": {
+						"_amount": ": number of tokens to deposit (in CAKE)"
+					}
+				},
+				"emergencyWithdraw()": {
+					"details": "EMERGENCY ONLY. Only callable by the contract admin."
+				},
+				"getUserCredit(address)": {
+					"params": {
+						"_user": ": user address"
+					}
+				},
+				"harvest()": {
+					"details": "Only possible when contract not paused."
+				},
+				"owner()": {
+					"details": "Returns the address of the current owner."
+				},
+				"pause()": {
+					"details": "Only possible when contract not paused."
+				},
+				"paused()": {
+					"details": "Returns true if the contract is paused, and false otherwise."
+				},
+				"renounceOwnership()": {
+					"details": "Leaves the contract without owner. It will not be possible to call `onlyOwner` functions anymore. Can only be called by the current owner. NOTE: Renouncing ownership will leave the contract without an owner, thereby removing any functionality that is only available to the owner."
+				},
+				"setAdmin(address)": {
+					"details": "Only callable by the contract owner."
+				},
+				"setCallFee(uint256)": {
+					"details": "Only callable by the contract admin."
+				},
+				"setPerformanceFee(uint256)": {
+					"details": "Only callable by the contract admin."
+				},
+				"setTreasury(address)": {
+					"details": "Only callable by the contract owner."
+				},
+				"setWithdrawFee(uint256)": {
+					"details": "Only callable by the contract admin."
+				},
+				"setWithdrawFeePeriod(uint256)": {
+					"details": "Only callable by the contract admin."
+				},
+				"transferOwnership(address)": {
+					"details": "Transfers ownership of the contract to a new account (`newOwner`). Can only be called by the current owner."
+				},
+				"unpause()": {
+					"details": "Only possible when contract is paused."
+				},
+				"updateEndBlock(uint256)": {
+					"details": "This function is only callable by owner.",
+					"params": {
+						"_endBlock": ": the new end block"
+					}
+				},
+				"updateStartAndEndBlocks(uint256,uint256)": {
+					"details": "This function is only callable by owner.",
+					"params": {
+						"_endBlock": ": the new end block",
+						"_startBlock": ": the new start block"
+					}
+				},
+				"withdraw(uint256)": {
+					"params": {
+						"_shares": ": Number of shares to withdraw"
+					}
+				}
+			},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {
+				"available()": {
+					"notice": "Custom logic for how much the vault allows to be borrowed"
+				},
+				"balanceOf()": {
+					"notice": "Calculates the total underlying tokens"
+				},
+				"calculateHarvestCakeRewards()": {
+					"notice": "Calculates the expected harvest reward from third party"
+				},
+				"calculateTotalPendingCakeRewards()": {
+					"notice": "Calculates the total pending rewards that can be restaked"
+				},
+				"constructor": "Constructor",
+				"deposit(uint256)": {
+					"notice": "Deposits funds into the Cake Vault"
+				},
+				"emergencyWithdraw()": {
+					"notice": "Withdraws from MasterChef to Vault without caring about rewards."
+				},
+				"emergencyWithdrawAll()": {
+					"notice": "Withdraws user all funds in emergency,it's called by user not admin,the userifo status will be clear"
+				},
+				"getPricePerFullShare()": {
+					"notice": "Calculates the price per share"
+				},
+				"getUserCredit(address)": {
+					"notice": "calculate IFO latest average balance for specific user"
+				},
+				"harvest()": {
+					"notice": "Reinvests CAKE tokens into MasterChef"
+				},
+				"inCaseTokensGetStuck(address)": {
+					"notice": "Withdraw unexpected tokens sent to the Cake Vault"
+				},
+				"pause()": {
+					"notice": "Triggers stopped state"
+				},
+				"setAdmin(address)": {
+					"notice": "Sets admin address"
+				},
+				"setCallFee(uint256)": {
+					"notice": "Sets call fee"
+				},
+				"setPerformanceFee(uint256)": {
+					"notice": "Sets performance fee"
+				},
+				"setTreasury(address)": {
+					"notice": "Sets treasury address"
+				},
+				"setWithdrawFee(uint256)": {
+					"notice": "Sets withdraw fee"
+				},
+				"setWithdrawFeePeriod(uint256)": {
+					"notice": "Sets withdraw fee period"
+				},
+				"unpause()": {
+					"notice": "Returns to normal state"
+				},
+				"updateEndBlock(uint256)": {
+					"notice": "It allows the admin to update end block"
+				},
+				"updateStartAndEndBlocks(uint256,uint256)": {
+					"notice": "It allows the admin to update start and end blocks"
+				},
+				"withdraw(uint256)": {
+					"notice": "Withdraws from funds from the IFOPool"
+				},
+				"withdrawAll()": {
+					"notice": "Withdraws all funds for a user"
+				}
+			},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"farms-pools/LandbaseLockPool.sol": "LandbaseLockPool"
+		},
+		"evmVersion": "istanbul",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": true,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"farms-pools/IERC20.sol": {
+			"keccak256": "0x1cf8c1e1a8a8f60671d426bcedba75f5f0509dc74789e2d2475791c0596c33d1",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://687bcf000696228ec0ab4f0a4a694c5d66386a03e3accb981882e44c267ecc2a",
+				"dweb:/ipfs/QmbbfbCnBKTiqC1avw89kfA3wx8nmJWAWL7AAdu2p8DrHp"
+			]
+		},
+		"farms-pools/LandbaseLockPool.sol": {
+			"keccak256": "0xdb3a8fce1b855151d5a2df48edded85ff1b611c62aa033c97b56ad7a8eadcdae",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://24f38d8bf7143f1bb67ec9904692f550cb888d14656c2ea259a4e08744492cf1",
+				"dweb:/ipfs/QmNQy9REYZVRoNzUwNn7cav9Ya5vdUzDJE45bvPfSJ1Cr1"
+			]
+		},
+		"farms-pools/SafeERC20.sol": {
+			"keccak256": "0xbc5515eb437f14554c0a3130218d4e10fa2005ebe04de5a94c3b26045ea1edca",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://c499bba562949b35ef7c62a405c718ffdffd00eaf719be51f55b0555f2970d03",
+				"dweb:/ipfs/QmPR8ay1e9S45f467LJJCLTfjUWeasAyRdRxD61AphUduB"
+			]
+		},
+		"farms-pools/access/Ownable.sol": {
+			"keccak256": "0xd23f7163f3959c5989d5a5c08c1d9018ddd1b5cf87250aab0950a53744cbd745",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://e9e02a29196a37f06675dd464d7ed2d604e17c5a227b86c0230100a5ee8fc873",
+				"dweb:/ipfs/QmQ3EhqCuz8qV7yQ9gL5ybrxaVrjw9LdH45C6adQwwaN8c"
+			]
+		},
+		"farms-pools/interfaces/IMasterChef.sol": {
+			"keccak256": "0x848f6928415dd126e6d6b1295e9c18222524f6bac8108e2d2b48a09ec9220b75",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://bbaebd1af51cecf6738e363bbe2dc299636908348c5deb0f38d585ecd74c3c1a",
+				"dweb:/ipfs/QmT6DC2R7X27sLPAiJixgYiyDDh7YgcrzpbFviA9uu2UhY"
+			]
+		},
+		"farms-pools/libraries/SafeMath.sol": {
+			"keccak256": "0x7a187c7031248663ae674cb56acdcea47099c2fa4fde49f91679b14b004e1ce0",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://5f48576ad6b6ece288d6df1241d22503330c86696f2fb719e61205b2fbc34a8e",
+				"dweb:/ipfs/QmYqDwsCFkEZ9UusAZvLReiRCU1UV8GQ8bzHgeRmCVkSAJ"
+			]
+		},
+		"farms-pools/utils/Address.sol": {
+			"keccak256": "0x17de04c9a869de25c86566a4d0ae5569374884a54ac619506073b14197d2f6ed",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://c5910c7dce55c17825ea964237054a544f164e854732bfdfaf593b612a89f57b",
+				"dweb:/ipfs/QmUQ2gzqoAvYcJ5LqdUEsbMY8aA7tWxFKZjVt8tFgttEVu"
+			]
+		},
+		"farms-pools/utils/Context.sol": {
+			"keccak256": "0xa475c1685349498b21fd15bf23d66cc09480745186a5854b010784b620ffe4f3",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://7aa171a3b0aeabd7b31b94cf63eb14df9fd3d2e3a12d5ba3d9a634a789871196",
+				"dweb:/ipfs/QmNwZDsCn4Af9Uyw3syohXAAoe9pAwCuvCm6FZXG3Hv5ka"
+			]
+		},
+		"farms-pools/utils/Pausable.sol": {
+			"keccak256": "0x6e6dd5d6fb04c52a8aef08c1198f2c182b9dc4ea9e6dca1643f81ecccc28d962",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://d5d276d345f2fd45a6f56f5a02495b471428537026a1da1b03cac525be1b9a4f",
+				"dweb:/ipfs/QmfBYHxkeixHMTLJt8eb4oWrvUiEvFitPycxTxAKgqFrhr"
+			]
+		}
+	},
+	"version": 1
+}
