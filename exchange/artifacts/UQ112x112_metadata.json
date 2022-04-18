@@ -1,0 +1,37 @@
+{
+	"compiler": {
+		"version": "0.5.16+commit.9c3226ce"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [],
+		"devdoc": {
+			"methods": {}
+		},
+		"userdoc": {
+			"methods": {}
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"LandbaseFactoryV2.sol": "UQ112x112"
+		},
+		"evmVersion": "istanbul",
+		"libraries": {},
+		"optimizer": {
+			"enabled": true,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"LandbaseFactoryV2.sol": {
+			"keccak256": "0x5bc6f271617962c55e32c8e4950515592643857b7fcc9aa8c7a28a548787b622",
+			"urls": [
+				"bzz-raw://00653eebbbd2cb47605f75a725c50dd58be76db60f2148511ad51f9a35eb1793",
+				"dweb:/ipfs/QmbyzejvYEmok59JkiMebzKxcp5BEvNi7Ad77NurEBQQzP"
+			]
+		}
+	},
+	"version": 1
+}

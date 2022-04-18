@@ -1,0 +1,40 @@
+{
+	"compiler": {
+		"version": "0.6.6+commit.6c089d02"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [],
+		"devdoc": {
+			"methods": {}
+		},
+		"userdoc": {
+			"methods": {}
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/LandbaseRouterV2.sol": "PancakeLibrary"
+		},
+		"evmVersion": "istanbul",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": true,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"contracts/LandbaseRouterV2.sol": {
+			"keccak256": "0x3067bab2be589f060096f610444003ca275bc2790014afa4601367a8815e91ff",
+			"urls": [
+				"bzz-raw://378c91ac40b2cecbe143d47790414d9186e9ac2d8b3280e7419fa1901b1c854e",
+				"dweb:/ipfs/QmQczVqBQJo16SzfzdGEcKwMG4RenUp2JdFqp6Erz8hgeJ"
+			]
+		}
+	},
+	"version": 1
+}

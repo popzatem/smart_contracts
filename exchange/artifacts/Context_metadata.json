@@ -1,0 +1,51 @@
+{
+	"compiler": {
+		"version": "0.5.16+commit.9c3226ce"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [],
+				"payable": false,
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			}
+		],
+		"devdoc": {
+			"methods": {}
+		},
+		"userdoc": {
+			"methods": {}
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/BEP20.sol": "Context"
+		},
+		"evmVersion": "istanbul",
+		"libraries": {},
+		"optimizer": {
+			"enabled": true,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"contracts/BEP20.sol": {
+			"keccak256": "0x0b9aded0a37212c87e107057712d55009c76b19121dff483ded1e9f194253c4d",
+			"urls": [
+				"bzz-raw://bf6d3b72a11c3738bb03a7383f591eb890f8e7a491909c5b0923b041c9159edd",
+				"dweb:/ipfs/QmaysSAKwDZML5XTE9n145mj4Ft4fUBS126THqbedzvbyH"
+			]
+		},
+		"contracts/IBEP20.sol": {
+			"keccak256": "0x5333320b25693688b9166a4ed9930248cb5e537c4b5aa7a0a5bdccca753f2e9b",
+			"urls": [
+				"bzz-raw://4f6e3ac45b476eba499679ad2cbb965051eddb1d9c29274a58f84b914147ca5e",
+				"dweb:/ipfs/QmQ8GcBsWE6B5my8BvVqMscBgHDYge1k4MFh13Ndtwy1Ny"
+			]
+		}
+	},
+	"version": 1
+}
