@@ -19,7 +19,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"farms-pools/ReentrancyGuard.sol": "ReentrancyGuard"
+			"farms-pools/SmartChefFactory.sol": "ReentrancyGuard"
 		},
 		"evmVersion": "london",
 		"libraries": {},
@@ -33,12 +33,12 @@
 		"remappings": []
 	},
 	"sources": {
-		"farms-pools/ReentrancyGuard.sol": {
-			"keccak256": "0xda3ce84b884b80d107f3ee32fa025bdc926ff1971f28554ad597a9703e0d062b",
+		"farms-pools/SmartChefFactory.sol": {
+			"keccak256": "0x6507dcb2534953ec4672ba6481753ee2ca92bb1d531df4cd2dd0850d32498f1b",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://cf6684c8e5de1223b94664eca8b6852b1d8e0bab191fa8832d1fab5c6c63df1c",
-				"dweb:/ipfs/QmReWJ6LLBXAW4FwMx3iPLzEqXNeLMUuH1y1pgmq3SZGgW"
+				"bzz-raw://c775a1b5cf69e295cfe15d6026aae09fe10b16bd39d6977b01efbf12e21ceb17",
+				"dweb:/ipfs/QmRM6igfwzndHtVfq5wzR8XmTAQkL9JcgqRdojseN6Tmo5"
 			]
 		}
 	},

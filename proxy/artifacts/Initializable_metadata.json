@@ -1,0 +1,54 @@
+{
+	"compiler": {
+		"version": "0.7.6+commit.7338295f"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [],
+		"devdoc": {
+			"details": "This is a base contract to aid in writing upgradeable contracts, or any kind of contract that will be deployed behind a proxy. Since a proxied contract can't have a constructor, it's common to move constructor logic to an external initializer function, usually called `initialize`. It then becomes necessary to protect this initializer function so it can only be called once. The {initializer} modifier provided by this contract will have this effect.  TIP: To avoid leaving the proxy in an uninitialized state, the initializer function should be called as early as possible by providing the encoded function call as the `_data` argument to {UpgradeableProxy-constructor}.  CAUTION: When used with inheritance, manual care must be taken to not invoke a parent initializer twice, or to ensure that all initializers are idempotent. This is not verified automatically as constructors are by Solidity.",
+			"kind": "dev",
+			"methods": {},
+			"stateVariables": {
+				"_initialized": {
+					"details": "Indicates that the contract has been initialized."
+				},
+				"_initializing": {
+					"details": "Indicates that the contract is in the process of being initialized."
+				}
+			},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"proxy/Initializable.sol": "Initializable"
+		},
+		"evmVersion": "istanbul",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"proxy/Initializable.sol": {
+			"keccak256": "0xb12af324778736b952b0e9c2bb83286c943d7f0e947bc272896786a7135d2d78",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://c0e4abb1f28001c35b0a0f9ee28692aee31356f2a85ee3418f6e433e60f20d4d",
+				"dweb:/ipfs/QmZEAgq8NnMNrYbi2m3ADTYGTS9r6FHJksHQPb83xEPbUj"
+			]
+		}
+	},
+	"version": 1
+}

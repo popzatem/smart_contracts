@@ -1,0 +1,356 @@
+{
+	"compiler": {
+		"version": "0.8.13+commit.abaa5c0e"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"components": [
+							{
+								"internalType": "address",
+								"name": "target",
+								"type": "address"
+							},
+							{
+								"internalType": "bytes",
+								"name": "callData",
+								"type": "bytes"
+							}
+						],
+						"internalType": "struct Multicall2.Call[]",
+						"name": "calls",
+						"type": "tuple[]"
+					}
+				],
+				"name": "aggregate",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "blockNumber",
+						"type": "uint256"
+					},
+					{
+						"internalType": "bytes[]",
+						"name": "returnData",
+						"type": "bytes[]"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"components": [
+							{
+								"internalType": "address",
+								"name": "target",
+								"type": "address"
+							},
+							{
+								"internalType": "bytes",
+								"name": "callData",
+								"type": "bytes"
+							}
+						],
+						"internalType": "struct Multicall2.Call[]",
+						"name": "calls",
+						"type": "tuple[]"
+					}
+				],
+				"name": "blockAndAggregate",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "blockNumber",
+						"type": "uint256"
+					},
+					{
+						"internalType": "bytes32",
+						"name": "blockHash",
+						"type": "bytes32"
+					},
+					{
+						"components": [
+							{
+								"internalType": "bool",
+								"name": "success",
+								"type": "bool"
+							},
+							{
+								"internalType": "bytes",
+								"name": "returnData",
+								"type": "bytes"
+							}
+						],
+						"internalType": "struct Multicall2.Result[]",
+						"name": "returnData",
+						"type": "tuple[]"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "blockNumber",
+						"type": "uint256"
+					}
+				],
+				"name": "getBlockHash",
+				"outputs": [
+					{
+						"internalType": "bytes32",
+						"name": "blockHash",
+						"type": "bytes32"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getBlockNumber",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "blockNumber",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getCurrentBlockCoinbase",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "coinbase",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getCurrentBlockDifficulty",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "difficulty",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getCurrentBlockGasLimit",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "gaslimit",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getCurrentBlockTimestamp",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "timestamp",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "addr",
+						"type": "address"
+					}
+				],
+				"name": "getEthBalance",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "balance",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getLastBlockHash",
+				"outputs": [
+					{
+						"internalType": "bytes32",
+						"name": "blockHash",
+						"type": "bytes32"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "bool",
+						"name": "requireSuccess",
+						"type": "bool"
+					},
+					{
+						"components": [
+							{
+								"internalType": "address",
+								"name": "target",
+								"type": "address"
+							},
+							{
+								"internalType": "bytes",
+								"name": "callData",
+								"type": "bytes"
+							}
+						],
+						"internalType": "struct Multicall2.Call[]",
+						"name": "calls",
+						"type": "tuple[]"
+					}
+				],
+				"name": "tryAggregate",
+				"outputs": [
+					{
+						"components": [
+							{
+								"internalType": "bool",
+								"name": "success",
+								"type": "bool"
+							},
+							{
+								"internalType": "bytes",
+								"name": "returnData",
+								"type": "bytes"
+							}
+						],
+						"internalType": "struct Multicall2.Result[]",
+						"name": "returnData",
+						"type": "tuple[]"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "bool",
+						"name": "requireSuccess",
+						"type": "bool"
+					},
+					{
+						"components": [
+							{
+								"internalType": "address",
+								"name": "target",
+								"type": "address"
+							},
+							{
+								"internalType": "bytes",
+								"name": "callData",
+								"type": "bytes"
+							}
+						],
+						"internalType": "struct Multicall2.Call[]",
+						"name": "calls",
+						"type": "tuple[]"
+					}
+				],
+				"name": "tryBlockAndAggregate",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "blockNumber",
+						"type": "uint256"
+					},
+					{
+						"internalType": "bytes32",
+						"name": "blockHash",
+						"type": "bytes32"
+					},
+					{
+						"components": [
+							{
+								"internalType": "bool",
+								"name": "success",
+								"type": "bool"
+							},
+							{
+								"internalType": "bytes",
+								"name": "returnData",
+								"type": "bytes"
+							}
+						],
+						"internalType": "struct Multicall2.Result[]",
+						"name": "returnData",
+						"type": "tuple[]"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"farms-pools/Multicall2.sol": "Multicall2"
+		},
+		"evmVersion": "london",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"farms-pools/Multicall2.sol": {
+			"keccak256": "0xedf3ae26efdcfe9ee2e3477d228b03a3d8a2e4b3c565459f9eea9f0ce2213e9d",
+			"urls": [
+				"bzz-raw://dea25cafde293fee6244ba39d1c00f335c069b8fec57597dd7aae82b3ee461e7",
+				"dweb:/ipfs/QmZ9NekzA2Wo2Ui9EtSN1eagsQANiVX2qPVmBoH39E59Jg"
+			]
+		}
+	},
+	"version": 1
+}

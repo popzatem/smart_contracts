@@ -1,0 +1,920 @@
+{
+	"compiler": {
+		"version": "0.8.14+commit.80d49f37"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "contract LandbaseToken",
+						"name": "_lbc",
+						"type": "address"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "owner",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "spender",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "value",
+						"type": "uint256"
+					}
+				],
+				"name": "Approval",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "delegator",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "fromDelegate",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "toDelegate",
+						"type": "address"
+					}
+				],
+				"name": "DelegateChanged",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "delegate",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "previousBalance",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "newBalance",
+						"type": "uint256"
+					}
+				],
+				"name": "DelegateVotesChanged",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "previousOwner",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "newOwner",
+						"type": "address"
+					}
+				],
+				"name": "OwnershipTransferred",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "from",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "to",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "value",
+						"type": "uint256"
+					}
+				],
+				"name": "Transfer",
+				"type": "event"
+			},
+			{
+				"inputs": [],
+				"name": "DELEGATION_TYPEHASH",
+				"outputs": [
+					{
+						"internalType": "bytes32",
+						"name": "",
+						"type": "bytes32"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "DOMAIN_TYPEHASH",
+				"outputs": [
+					{
+						"internalType": "bytes32",
+						"name": "",
+						"type": "bytes32"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "owner",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "spender",
+						"type": "address"
+					}
+				],
+				"name": "allowance",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "spender",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "approve",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "account",
+						"type": "address"
+					}
+				],
+				"name": "balanceOf",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_from",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_amount",
+						"type": "uint256"
+					}
+				],
+				"name": "burn",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					},
+					{
+						"internalType": "uint32",
+						"name": "",
+						"type": "uint32"
+					}
+				],
+				"name": "checkpoints",
+				"outputs": [
+					{
+						"internalType": "uint32",
+						"name": "fromBlock",
+						"type": "uint32"
+					},
+					{
+						"internalType": "uint256",
+						"name": "votes",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "decimals",
+				"outputs": [
+					{
+						"internalType": "uint8",
+						"name": "",
+						"type": "uint8"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "spender",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "subtractedValue",
+						"type": "uint256"
+					}
+				],
+				"name": "decreaseAllowance",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "delegatee",
+						"type": "address"
+					}
+				],
+				"name": "delegate",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "delegatee",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "nonce",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "expiry",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint8",
+						"name": "v",
+						"type": "uint8"
+					},
+					{
+						"internalType": "bytes32",
+						"name": "r",
+						"type": "bytes32"
+					},
+					{
+						"internalType": "bytes32",
+						"name": "s",
+						"type": "bytes32"
+					}
+				],
+				"name": "delegateBySig",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "delegator",
+						"type": "address"
+					}
+				],
+				"name": "delegates",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "account",
+						"type": "address"
+					}
+				],
+				"name": "getCurrentVotes",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getOwner",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "account",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "blockNumber",
+						"type": "uint256"
+					}
+				],
+				"name": "getPriorVotes",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "spender",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "addedValue",
+						"type": "uint256"
+					}
+				],
+				"name": "increaseAllowance",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "lbc",
+				"outputs": [
+					{
+						"internalType": "contract LandbaseToken",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_to",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_amount",
+						"type": "uint256"
+					}
+				],
+				"name": "mint",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "mint",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "name",
+				"outputs": [
+					{
+						"internalType": "string",
+						"name": "",
+						"type": "string"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"name": "nonces",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"name": "numCheckpoints",
+				"outputs": [
+					{
+						"internalType": "uint32",
+						"name": "",
+						"type": "uint32"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "owner",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "renounceOwnership",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_to",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_amount",
+						"type": "uint256"
+					}
+				],
+				"name": "safeCakeTransfer",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "symbol",
+				"outputs": [
+					{
+						"internalType": "string",
+						"name": "",
+						"type": "string"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "totalSupply",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "recipient",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "transfer",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "sender",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "recipient",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "transferFrom",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "newOwner",
+						"type": "address"
+					}
+				],
+				"name": "transferOwnership",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"events": {
+				"DelegateChanged(address,address,address)": {
+					"details": "An event thats emitted when an account changes its delegate"
+				},
+				"DelegateVotesChanged(address,uint256,uint256)": {
+					"details": "An event thats emitted when a delegate account's vote balance changes"
+				}
+			},
+			"kind": "dev",
+			"methods": {
+				"allowance(address,address)": {
+					"details": "See {BEP20-allowance}."
+				},
+				"approve(address,uint256)": {
+					"details": "See {BEP20-approve}. Requirements: - `spender` cannot be the zero address."
+				},
+				"balanceOf(address)": {
+					"details": "See {BEP20-balanceOf}."
+				},
+				"decimals()": {
+					"details": "Returns the token decimals."
+				},
+				"decreaseAllowance(address,uint256)": {
+					"details": "Atomically decreases the allowance granted to `spender` by the caller. This is an alternative to {approve} that can be used as a mitigation for problems described in {BEP20-approve}. Emits an {Approval} event indicating the updated allowance. Requirements: - `spender` cannot be the zero address. - `spender` must have allowance for the caller of at least `subtractedValue`."
+				},
+				"delegate(address)": {
+					"details": "Delegate votes from `msg.sender` to `delegatee`",
+					"params": {
+						"delegatee": "The address to delegate votes to"
+					}
+				},
+				"delegateBySig(address,uint256,uint256,uint8,bytes32,bytes32)": {
+					"details": "Delegates votes from signatory to `delegatee`",
+					"params": {
+						"delegatee": "The address to delegate votes to",
+						"expiry": "The time at which to expire the signature",
+						"nonce": "The contract state required to match the signature",
+						"r": "Half of the ECDSA signature pair",
+						"s": "Half of the ECDSA signature pair",
+						"v": "The recovery byte of the signature"
+					}
+				},
+				"delegates(address)": {
+					"details": "Delegate votes from `msg.sender` to `delegatee`",
+					"params": {
+						"delegator": "The address to get delegatee for"
+					}
+				},
+				"getCurrentVotes(address)": {
+					"details": "Gets the current votes balance for `account`",
+					"params": {
+						"account": "The address to get votes balance"
+					},
+					"returns": {
+						"_0": "The number of current votes for `account`"
+					}
+				},
+				"getOwner()": {
+					"details": "Returns the bep token owner."
+				},
+				"getPriorVotes(address,uint256)": {
+					"details": "Determine the prior number of votes for an account as of a block numberBlock number must be a finalized block or else this function will revert to prevent misinformation.",
+					"params": {
+						"account": "The address of the account to check",
+						"blockNumber": "The block number to get the vote balance at"
+					},
+					"returns": {
+						"_0": "The number of votes the account had as of the given block"
+					}
+				},
+				"increaseAllowance(address,uint256)": {
+					"details": "Atomically increases the allowance granted to `spender` by the caller. This is an alternative to {approve} that can be used as a mitigation for problems described in {BEP20-approve}. Emits an {Approval} event indicating the updated allowance. Requirements: - `spender` cannot be the zero address."
+				},
+				"mint(address,uint256)": {
+					"details": "Creates `_amount` token to `_to`. Must only be called by the owner (MasterChef)."
+				},
+				"mint(uint256)": {
+					"details": "Creates `amount` tokens and assigns them to `msg.sender`, increasing the total supply. Requirements - `msg.sender` must be the token owner"
+				},
+				"name()": {
+					"details": "Returns the token name."
+				},
+				"owner()": {
+					"details": "Returns the address of the current owner."
+				},
+				"renounceOwnership()": {
+					"details": "Leaves the contract without owner. It will not be possible to call `onlyOwner` functions anymore. Can only be called by the current owner. NOTE: Renouncing ownership will leave the contract without an owner, thereby removing any functionality that is only available to the owner."
+				},
+				"symbol()": {
+					"details": "Returns the token symbol."
+				},
+				"totalSupply()": {
+					"details": "See {BEP20-totalSupply}."
+				},
+				"transfer(address,uint256)": {
+					"details": "See {BEP20-transfer}. Requirements: - `recipient` cannot be the zero address. - the caller must have a balance of at least `amount`."
+				},
+				"transferFrom(address,address,uint256)": {
+					"details": "See {BEP20-transferFrom}. Emits an {Approval} event indicating the updated allowance. This is not required by the EIP. See the note at the beginning of {BEP20}; Requirements: - `sender` and `recipient` cannot be the zero address. - `sender` must have a balance of at least `amount`. - the caller must have allowance for `sender`'s tokens of at least `amount`."
+				},
+				"transferOwnership(address)": {
+					"details": "Transfers ownership of the contract to a new account (`newOwner`). Can only be called by the current owner."
+				}
+			},
+			"stateVariables": {
+				"DELEGATION_TYPEHASH": {
+					"details": "The EIP-712 typehash for the delegation struct used by the contract"
+				},
+				"DOMAIN_TYPEHASH": {
+					"details": "The EIP-712 typehash for the contract's domain"
+				},
+				"_delegates": {
+					"details": "A record of each accounts delegate"
+				},
+				"checkpoints": {
+					"details": "A record of votes checkpoints for each account, by index"
+				},
+				"nonces": {
+					"details": "A record of states for signing / validating signatures"
+				},
+				"numCheckpoints": {
+					"details": "The number of checkpoints for each account"
+				}
+			},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/SyrupBar.sol": "SyrupBar"
+		},
+		"evmVersion": "london",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": true,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"contracts/BEP20.sol": {
+			"keccak256": "0x325eb627eb1acb2bf55f0836f9f460261fa4b408d04878df038260201b5d9c95",
+			"license": "GPL-3.0",
+			"urls": [
+				"bzz-raw://774f25742454ecfd4342eb5128ddf5d241e76982981629334b740b1eb69b3404",
+				"dweb:/ipfs/QmdnBm7kHAN3wauyv5JrByt1yuehBUeiV5e9dw6QNwQ48S"
+			]
+		},
+		"contracts/IBEP20.sol": {
+			"keccak256": "0x08dc42fc8715fc0cee50f6d2fcd29a657d23f6144968197f865e5c0f94028ec8",
+			"license": "GPL-3.0",
+			"urls": [
+				"bzz-raw://79c1cb76e371cbb5adf34470dfea7fc66ca48a43b29ad3f136eee6f900e6cee3",
+				"dweb:/ipfs/QmQBf7YZ4LpKpp1yQcxsAzrdHzuAbmn2cf8qb9ky5WNp2D"
+			]
+		},
+		"contracts/LandbaseToken.sol": {
+			"keccak256": "0x7affbd5fd4d54b94f95d48bcc3f57f247bec8a2c5b1a41933638faaad15671e4",
+			"license": "GPL-3.0",
+			"urls": [
+				"bzz-raw://94e4d766050206ad8f7882d0df7243cc2b359d4531516aba177cefd735b856a7",
+				"dweb:/ipfs/QmYyn6FLoE1dmZ3MCBRxZ7Ha5iaDce5V8xf8anqnaCou2Z"
+			]
+		},
+		"contracts/SyrupBar.sol": {
+			"keccak256": "0x8cedb0eaf035ec01171e13e6206123241f631d6d3f6a905987561fb50ebaeace",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://019c512e1102e1cde41bdf27489cfe74673f4809db92255da53e7f2646a08604",
+				"dweb:/ipfs/QmcjhcgNC1hAmdeboS1xvvUeAFH3KfJGC1iKQjtStdoYsN"
+			]
+		},
+		"contracts/access/Ownable.sol": {
+			"keccak256": "0xe3b365539b1e8a4a0dace6efed1c6364d3c3cb8b260b8717a7524ad6c5d20e86",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://567953dca5bb4fbd23e93733d29b58232370935eb9c9dad09b4a8513c383ec62",
+				"dweb:/ipfs/QmNwVwQwC8HZ5oL9g8QypjNwwYxRUxqp8hgfcdMdHpnFPR"
+			]
+		},
+		"contracts/libraries/SafeMath.sol": {
+			"keccak256": "0xdf297ae5498c5a335398fac67c7dcb4479f2a0954c881ece4338637b44942a58",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://58c779928cd68ac59867d57bea855016f4d06e47c2d693a60230aa5bbf0acec1",
+				"dweb:/ipfs/QmPWYTn5eNUUGiyCm3EJx4mEQPRh9baePiQ1oztr4bTLhr"
+			]
+		},
+		"contracts/structs/EnumerableSet.sol": {
+			"keccak256": "0xb5d9d145978c5e56644335b68131f2907415a8af195f23ccc8f623dc7db62ce3",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://92575a1257864d5127ad2bcf72f0b5ca916c1a5fdcf89567842ea2cbb6e6c12e",
+				"dweb:/ipfs/QmcXzLvfwrgiwfqNtVE437MdKTv6spcgDhdj3DZhG7bAZV"
+			]
+		},
+		"contracts/utils/Address.sol": {
+			"keccak256": "0x626b62cca5971be750732929d782b30e1277e36dd6b4ec2a90ddbbb61c650066",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://07c78b7f7894e0444db2c6c4c73e4eddb78beed6bd65cd6089e2e9434bea83b0",
+				"dweb:/ipfs/QmczQU7ihPMBhAmUM9MxnumRWwwvnTiDMDHp3nJSgYXQim"
+			]
+		},
+		"contracts/utils/Context.sol": {
+			"keccak256": "0x851c3d8e30ea37c35947f620812e2e18718ac9312ef8d84b643fc46d94269540",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://7c02fec97a236e7eda6646bb8aef30a00f134710ffc29f1965c27dc257cc58a3",
+				"dweb:/ipfs/QmNoqNHYS9HP9u8J3bG5kVztMNcQ42kYiiiKDN8tY94gvY"
+			]
+		}
+	},
+	"version": 1
+}

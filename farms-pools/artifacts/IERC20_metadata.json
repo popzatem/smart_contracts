@@ -1,6 +1,6 @@
 {
 	"compiler": {
-		"version": "0.7.6+commit.7338295f"
+		"version": "0.8.13+commit.abaa5c0e"
 	},
 	"language": "Solidity",
 	"output": {
@@ -190,7 +190,6 @@
 			}
 		],
 		"devdoc": {
-			"details": "Interface of the ERC20 standard as defined in the EIP.",
 			"events": {
 				"Approval(address,address,uint256)": {
 					"details": "Emitted when the allowance of a `spender` for an `owner` is set by a call to {approve}. `value` is the new allowance."
@@ -230,26 +229,26 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"farms-pools/IERC20.sol": "IERC20"
+			"farms-pools/SmartChefFactory.sol": "IERC20"
 		},
-		"evmVersion": "istanbul",
+		"evmVersion": "london",
 		"libraries": {},
 		"metadata": {
 			"bytecodeHash": "ipfs"
 		},
 		"optimizer": {
-			"enabled": true,
+			"enabled": false,
 			"runs": 200
 		},
 		"remappings": []
 	},
 	"sources": {
-		"farms-pools/IERC20.sol": {
-			"keccak256": "0x1cf8c1e1a8a8f60671d426bcedba75f5f0509dc74789e2d2475791c0596c33d1",
+		"farms-pools/SmartChefFactory.sol": {
+			"keccak256": "0x6507dcb2534953ec4672ba6481753ee2ca92bb1d531df4cd2dd0850d32498f1b",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://687bcf000696228ec0ab4f0a4a694c5d66386a03e3accb981882e44c267ecc2a",
-				"dweb:/ipfs/QmbbfbCnBKTiqC1avw89kfA3wx8nmJWAWL7AAdu2p8DrHp"
+				"bzz-raw://c775a1b5cf69e295cfe15d6026aae09fe10b16bd39d6977b01efbf12e21ceb17",
+				"dweb:/ipfs/QmRM6igfwzndHtVfq5wzR8XmTAQkL9JcgqRdojseN6Tmo5"
 			]
 		}
 	},

@@ -784,17 +784,17 @@
 			"bytecodeHash": "ipfs"
 		},
 		"optimizer": {
-			"enabled": false,
+			"enabled": true,
 			"runs": 200
 		},
 		"remappings": []
 	},
 	"sources": {
 		"farms-pools/MasterChef.sol": {
-			"keccak256": "0x57a3e37196fba2deac792cbeef686ed433310a5a03ce6a3486da76f6c40706d6",
+			"keccak256": "0x44adcf7a4c15685021c42953570c7d4cb55284136f2640ae9a3de10a99f7a996",
 			"urls": [
-				"bzz-raw://bb53e16d2956864a4a97eb1276ea132b059c2cb67a274aad1fb701e4a5a263eb",
-				"dweb:/ipfs/QmW6SJj5r94Jm1oELBRzD3jxdDMqatpRxFXwBaVLYGVHKm"
+				"bzz-raw://b8a47bec8e2c8cd00b0467b7dbeb3481d107b0ff1f1ede0c243121be2149f7a9",
+				"dweb:/ipfs/QmQDDP95VxNemC4BBGDmRgnHUEoL4s91iYj8wHzz2WxQEy"
 			]
 		}
 	},

@@ -1,6 +1,6 @@
 {
 	"compiler": {
-		"version": "0.8.13+commit.abaa5c0e"
+		"version": "0.6.12+commit.27d51765"
 	},
 	"language": "Solidity",
 	"output": {
@@ -293,9 +293,9 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"contracts/IBEP20.sol": "IBEP20"
+			"contracts/MasterChef.sol": "IBEP20"
 		},
-		"evmVersion": "london",
+		"evmVersion": "istanbul",
 		"libraries": {},
 		"metadata": {
 			"bytecodeHash": "ipfs"
@@ -307,12 +307,11 @@
 		"remappings": []
 	},
 	"sources": {
-		"contracts/IBEP20.sol": {
-			"keccak256": "0x08dc42fc8715fc0cee50f6d2fcd29a657d23f6144968197f865e5c0f94028ec8",
-			"license": "GPL-3.0",
+		"contracts/MasterChef.sol": {
+			"keccak256": "0x40680c20c4bc2fb4a7429a835ecf492f58af366189d58c2f1ef12ec26e4f3a26",
 			"urls": [
-				"bzz-raw://79c1cb76e371cbb5adf34470dfea7fc66ca48a43b29ad3f136eee6f900e6cee3",
-				"dweb:/ipfs/QmQBf7YZ4LpKpp1yQcxsAzrdHzuAbmn2cf8qb9ky5WNp2D"
+				"bzz-raw://2a1942d1ab41690147ab71bed7918fe67dec6b54c8bf6b1a0f85bd13d63fd544",
+				"dweb:/ipfs/QmRgYWWYdon8AuEez5frA1M43NEcBztsHZeNVpzuLw29nK"
 			]
 		}
 	},

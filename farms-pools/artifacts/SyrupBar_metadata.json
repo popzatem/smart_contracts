@@ -9,7 +9,7 @@
 				"inputs": [
 					{
 						"internalType": "contract LandbaseToken",
-						"name": "_LBC",
+						"name": "_cake",
 						"type": "address"
 					}
 				],
@@ -247,6 +247,19 @@
 				"type": "function"
 			},
 			{
+				"inputs": [],
+				"name": "cake",
+				"outputs": [
+					{
+						"internalType": "contract LandbaseToken",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
 				"inputs": [
 					{
 						"internalType": "address",
@@ -460,19 +473,6 @@
 					}
 				],
 				"stateMutability": "nonpayable",
-				"type": "function"
-			},
-			{
-				"inputs": [],
-				"name": "lbc",
-				"outputs": [
-					{
-						"internalType": "contract LandbaseToken",
-						"name": "",
-						"type": "address"
-					}
-				],
-				"stateMutability": "view",
 				"type": "function"
 			},
 			{
@@ -844,17 +844,17 @@
 			"bytecodeHash": "ipfs"
 		},
 		"optimizer": {
-			"enabled": false,
+			"enabled": true,
 			"runs": 200
 		},
 		"remappings": []
 	},
 	"sources": {
 		"farms-pools/MasterChef.sol": {
-			"keccak256": "0xd066e1fbf4abfe3709756cdae8ee0822d6fbf0a4afab1d9b0c4c9aecc4925cb6",
+			"keccak256": "0x40680c20c4bc2fb4a7429a835ecf492f58af366189d58c2f1ef12ec26e4f3a26",
 			"urls": [
-				"bzz-raw://79e45c187b5edf6ba72a8f91ac79e6d85fcf72e5d831ffcd788361562595d73d",
-				"dweb:/ipfs/QmTV496kiFJDDhttsvdskR8f2cDZNxmzq1Zmp7Pu7vsyv6"
+				"bzz-raw://2a1942d1ab41690147ab71bed7918fe67dec6b54c8bf6b1a0f85bd13d63fd544",
+				"dweb:/ipfs/QmRgYWWYdon8AuEez5frA1M43NEcBztsHZeNVpzuLw29nK"
 			]
 		}
 	},

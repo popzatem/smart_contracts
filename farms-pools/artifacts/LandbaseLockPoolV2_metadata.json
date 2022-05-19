@@ -1,6 +1,6 @@
 {
 	"compiler": {
-		"version": "0.8.13+commit.abaa5c0e"
+		"version": "0.8.14+commit.80d49f37"
 	},
 	"language": "Solidity",
 	"output": {
@@ -596,7 +596,7 @@
 			"bytecodeHash": "ipfs"
 		},
 		"optimizer": {
-			"enabled": false,
+			"enabled": true,
 			"runs": 200
 		},
 		"remappings": []
@@ -619,11 +619,11 @@
 			]
 		},
 		"contracts/LandbaseToken.sol": {
-			"keccak256": "0xfbba8e9a09ff3cd03e0411f0588b987d579d7e8a54f88b6d1dfe5a1ff705764a",
+			"keccak256": "0x7affbd5fd4d54b94f95d48bcc3f57f247bec8a2c5b1a41933638faaad15671e4",
 			"license": "GPL-3.0",
 			"urls": [
-				"bzz-raw://866fb29f4e0d073df3322279530a7a2a71a1df8529da588e25022d86db602be5",
-				"dweb:/ipfs/QmPTVWRuASLzC5TZZnNYKAS5KTkF8hCwsiJBxPU2Z2DQBX"
+				"bzz-raw://94e4d766050206ad8f7882d0df7243cc2b359d4531516aba177cefd735b856a7",
+				"dweb:/ipfs/QmYyn6FLoE1dmZ3MCBRxZ7Ha5iaDce5V8xf8anqnaCou2Z"
 			]
 		},
 		"contracts/SafeBEP20.sol": {
@@ -683,11 +683,11 @@
 			]
 		},
 		"farms-pools/LandbaseLockPoolV2.sol": {
-			"keccak256": "0x808132f4c79a433e634401d151d661c5065ba0620323734721767a2190a44cf0",
+			"keccak256": "0xa6591bbc315466b0b5dce4ff40d7945f203eea003a3192138f05824008cac910",
 			"license": "GPL-3.0",
 			"urls": [
-				"bzz-raw://20c6335107559ac9a00b63eb3e78ec9f6a5b511d952c5801883d745a1709f390",
-				"dweb:/ipfs/Qmcj7ix2cZw4Mv8y6XN1hsWz7bz68Ttha2BsSfxG59bJX9"
+				"bzz-raw://e4920cc7ddbbccce8f9dd0cf7856a65ed0c13d67f2682c61adec6e16efa9354b",
+				"dweb:/ipfs/QmXBYjksD4ZttwWJgNc2ihJB8yz3C8cYXjuEHKUNRmLA1L"
 			]
 		},
 		"farms-pools/RewardTreasury.sol": {

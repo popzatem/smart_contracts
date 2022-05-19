@@ -293,7 +293,7 @@ library LandbaseLibrary {
                 hex'ff',
                 factory,
                 keccak256(abi.encodePacked(token0, token1)),
-                hex'1b2e2329579cf00023603519ffb2fa180c8ef310557c92f3c2b587ff20bf17a2' // init code hash
+                hex'cfc2f75d5540b22f0e03846736c5eea464e7544caec707cd2325faedae9801ed' // init code hash
             ))));
     }
 

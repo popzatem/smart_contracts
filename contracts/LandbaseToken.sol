@@ -1,13 +1,12 @@
 // SPDX-License-Identifier: GPL-3.0
 pragma solidity >=0.8.0;
 
-import "./libraries/SafeMath.sol";
 import "./structs/EnumerableSet.sol";
 
 import "./BEP20.sol";
 
 // LandbaseToken with Governance.
-contract LandbaseToken is BEP20("Landbase Coin", "BLC") {
+contract LandbaseToken is BEP20("Landbase Coin", "LBC") {
     using SafeMath for uint256;
     using EnumerableSet for EnumerableSet.AddressSet;
 
@@ -119,15 +118,15 @@ contract LandbaseToken is BEP20("Landbase Coin", "BLC") {
         address signatory = ecrecover(digest, v, r, s);
         require(
             signatory != address(0),
-            "PLEARN::delegateBySig: invalid signature"
+            "LANDBASE::delegateBySig: invalid signature"
         );
         require(
             nonce == nonces[signatory]++,
-            "PLEARN::delegateBySig: invalid nonce"
+            "LANDBASE::delegateBySig: invalid nonce"
         );
         require(
             block.timestamp <= expiry,
-            "PLEARN::delegateBySig: signature expired"
+            "LANDBASE::delegateBySig: signature expired"
         );
         return _delegate(signatory, delegatee);
     }
@@ -157,7 +156,7 @@ contract LandbaseToken is BEP20("Landbase Coin", "BLC") {
     {
         require(
             blockNumber < block.number,
-            "PLEARN::getPriorVotes: not yet determined"
+            "LANDBASE::getPriorVotes: not yet determined"
         );
 
         uint32 nCheckpoints = numCheckpoints[account];
@@ -237,7 +236,7 @@ contract LandbaseToken is BEP20("Landbase Coin", "BLC") {
     ) internal {
         uint32 blockNumber = safe32(
             block.number,
-            "PLEARN::_writeCheckpoint: block number exceeds 32 bits"
+            "LANDBASE::_writeCheckpoint: block number exceeds 32 bits"
         );
 
         if (
@@ -276,7 +275,7 @@ contract LandbaseToken is BEP20("Landbase Coin", "BLC") {
     function addMinter(address _addMinter) public onlyOwner returns (bool) {
         require(
             _addMinter != address(0),
-            "PLEARN: _addMinter is the zero address"
+            "LANDBASE: _addMinter is the zero address"
         );
         return EnumerableSet.add(_minters, _addMinter);
     }
@@ -284,7 +283,7 @@ contract LandbaseToken is BEP20("Landbase Coin", "BLC") {
     function delMinter(address _delMinter) public onlyOwner returns (bool) {
         require(
             _delMinter != address(0),
-            "PLEARN: _delMinter is the zero address"
+            "LANDBASE: _delMinter is the zero address"
         );
         return EnumerableSet.remove(_minters, _delMinter);
     }
@@ -298,7 +297,7 @@ contract LandbaseToken is BEP20("Landbase Coin", "BLC") {
     }
 
     function getMinter(uint256 _index) public view onlyOwner returns (address) {
-        require(_index <= getMinterLength() - 1, "PLEARN: index out of bounds");
+        require(_index <= getMinterLength() - 1, "LANDBASE: index out of bounds");
         return EnumerableSet.at(_minters, _index);
     }
 

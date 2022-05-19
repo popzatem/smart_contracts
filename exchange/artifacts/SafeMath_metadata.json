@@ -1,6 +1,6 @@
 {
 	"compiler": {
-		"version": "0.6.6+commit.6c089d02"
+		"version": "0.5.16+commit.9c3226ce"
 	},
 	"language": "Solidity",
 	"output": {
@@ -14,13 +14,10 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"LandbaseRouterV2.sol": "SafeMath"
+			"exchange/LandbaseFactoryV2.sol": "SafeMath"
 		},
 		"evmVersion": "istanbul",
 		"libraries": {},
-		"metadata": {
-			"bytecodeHash": "ipfs"
-		},
 		"optimizer": {
 			"enabled": true,
 			"runs": 200
@@ -28,11 +25,11 @@
 		"remappings": []
 	},
 	"sources": {
-		"LandbaseRouterV2.sol": {
-			"keccak256": "0xfdd2bde7b8a3cfc1cd2229c0005e684d5192378810dd88f95bb056cfff993e05",
+		"exchange/LandbaseFactoryV2.sol": {
+			"keccak256": "0x5bc6f271617962c55e32c8e4950515592643857b7fcc9aa8c7a28a548787b622",
 			"urls": [
-				"bzz-raw://01d20aeacf93a597e9957f07c4d521eda5687c0a8baf631c06183e1f298f1ff8",
-				"dweb:/ipfs/QmcBT2aGSvCGVMm55fTpUT9tGsvDcdbfyZ7eLCR14wyP7n"
+				"bzz-raw://00653eebbbd2cb47605f75a725c50dd58be76db60f2148511ad51f9a35eb1793",
+				"dweb:/ipfs/QmbyzejvYEmok59JkiMebzKxcp5BEvNi7Ad77NurEBQQzP"
 			]
 		}
 	},

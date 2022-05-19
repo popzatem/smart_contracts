@@ -25,10 +25,10 @@ contract LandbaseLockPoolV2 is Ownable, ReentrancyGuard {
     // Accrued token per share
     uint256 public accTokenPerShare;
 
-    // The block number when PLEARN mining ends.
+    // The block number when LANDBASE mining ends.
     uint256 public bonusEndBlock;
 
-    // The block number when PLEARN mining starts.
+    // The block number when LANDBASE mining starts.
     uint256 public startBlock;
 
     // The block number of the last pool update
@@ -37,7 +37,7 @@ contract LandbaseLockPoolV2 is Ownable, ReentrancyGuard {
     // The pool limit (0 if none)
     uint256 public poolLimitPerUser;
 
-    // PLEARN tokens created per block.
+    // LANDBASE tokens created per block.
     uint256 public rewardPerBlock;
 
     // The precision factor
@@ -71,7 +71,7 @@ contract LandbaseLockPoolV2 is Ownable, ReentrancyGuard {
     event Withdraw(address indexed user, uint256 amount);
 
     /*
-     * @param _stakedToken: staked token address
+     * @param _stakedToken: staked token address (LP)
      * @param _rewardToken: reward token address
      * @param _rewardTreasury: reward treasury address
      * @param _pendingWithdrawal: pending Withdrawal address

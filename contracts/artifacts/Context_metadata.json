@@ -1,0 +1,44 @@
+{
+	"compiler": {
+		"version": "0.6.12+commit.27d51765"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/MasterChef.sol": "Context"
+		},
+		"evmVersion": "istanbul",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": true,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"contracts/MasterChef.sol": {
+			"keccak256": "0x40680c20c4bc2fb4a7429a835ecf492f58af366189d58c2f1ef12ec26e4f3a26",
+			"urls": [
+				"bzz-raw://2a1942d1ab41690147ab71bed7918fe67dec6b54c8bf6b1a0f85bd13d63fd544",
+				"dweb:/ipfs/QmRgYWWYdon8AuEez5frA1M43NEcBztsHZeNVpzuLw29nK"
+			]
+		}
+	},
+	"version": 1
+}

@@ -1,0 +1,189 @@
+{
+	"compiler": {
+		"version": "0.8.13+commit.abaa5c0e"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "smartChef",
+						"type": "address"
+					}
+				],
+				"name": "NewSmartChefContract",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "previousOwner",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "newOwner",
+						"type": "address"
+					}
+				],
+				"name": "OwnershipTransferred",
+				"type": "event"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "contract IERC20Metadata",
+						"name": "_stakedToken",
+						"type": "address"
+					},
+					{
+						"internalType": "contract IERC20Metadata",
+						"name": "_rewardToken",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_rewardPerBlock",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_startBlock",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_bonusEndBlock",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_poolLimitPerUser",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_numberBlocksForUserLimit",
+						"type": "uint256"
+					},
+					{
+						"internalType": "address",
+						"name": "_pancakeProfile",
+						"type": "address"
+					},
+					{
+						"internalType": "bool",
+						"name": "_pancakeProfileIsRequested",
+						"type": "bool"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_pancakeProfileThresholdPoints",
+						"type": "uint256"
+					},
+					{
+						"internalType": "address",
+						"name": "_admin",
+						"type": "address"
+					}
+				],
+				"name": "deployPool",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "owner",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "renounceOwnership",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "newOwner",
+						"type": "address"
+					}
+				],
+				"name": "transferOwnership",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {
+				"owner()": {
+					"details": "Returns the address of the current owner."
+				},
+				"renounceOwnership()": {
+					"details": "Leaves the contract without owner. It will not be possible to call `onlyOwner` functions anymore. Can only be called by the current owner. NOTE: Renouncing ownership will leave the contract without an owner, thereby removing any functionality that is only available to the owner."
+				},
+				"transferOwnership(address)": {
+					"details": "Transfers ownership of the contract to a new account (`newOwner`). Can only be called by the current owner."
+				}
+			},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"farms-pools/SmartChefFactory.sol": "SmartChefFactory"
+		},
+		"evmVersion": "london",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"farms-pools/SmartChefFactory.sol": {
+			"keccak256": "0x6507dcb2534953ec4672ba6481753ee2ca92bb1d531df4cd2dd0850d32498f1b",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://c775a1b5cf69e295cfe15d6026aae09fe10b16bd39d6977b01efbf12e21ceb17",
+				"dweb:/ipfs/QmRM6igfwzndHtVfq5wzR8XmTAQkL9JcgqRdojseN6Tmo5"
+			]
+		}
+	},
+	"version": 1
+}

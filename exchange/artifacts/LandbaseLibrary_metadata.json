@@ -14,7 +14,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"LandbaseRouterV2.sol": "LandbaseLibrary"
+			"exchange/LandbaseRouterV2.sol": "LandbaseLibrary"
 		},
 		"evmVersion": "istanbul",
 		"libraries": {},
@@ -28,11 +28,11 @@
 		"remappings": []
 	},
 	"sources": {
-		"LandbaseRouterV2.sol": {
-			"keccak256": "0xfdd2bde7b8a3cfc1cd2229c0005e684d5192378810dd88f95bb056cfff993e05",
+		"exchange/LandbaseRouterV2.sol": {
+			"keccak256": "0xef81885cb40289f7be89863cd9e48b5cbad26f431426de40fc90e21f535277ce",
 			"urls": [
-				"bzz-raw://01d20aeacf93a597e9957f07c4d521eda5687c0a8baf631c06183e1f298f1ff8",
-				"dweb:/ipfs/QmcBT2aGSvCGVMm55fTpUT9tGsvDcdbfyZ7eLCR14wyP7n"
+				"bzz-raw://75c324b9098d09b365b38e5711f702a9b88fb7b4a8b23a9aab4528d8552d7698",
+				"dweb:/ipfs/QmPQwUBjbE6qcQrRnARQXYw8AKQQ6VDVUXsRxEBisTpxrk"
 			]
 		}
 	},
